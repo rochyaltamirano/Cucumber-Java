@@ -20,9 +20,9 @@ public class SearchSteps {
 		driver.navigate().to("https://automationexercise.com/products");
 	}
 	
-	@When("the user enters Tshirt in the search bar")
-	public void userEntersTshirtInTheSearchBar() {
-		driver.findElement(By.id("search_product")).sendKeys("tshirt");
+	@When("the user enters {string} in the search bar")
+	public void userEntersProductInTheSearchBar(String article) {
+		driver.findElement(By.id("search_product")).sendKeys(article);
 	}
 	
 	@When("the user clicks the search button")
@@ -30,8 +30,8 @@ public class SearchSteps {
 		driver.findElement(By.id("submit_search")).click();
 	}
 	
-	@Then ("the Tshirt page appears")
-	public void tShirtPage () {
+	@Then ("the product page appears")
+	public void productPage () {
 		String title = driver.findElement(By.xpath("//h2[@class='title text-center']")).getText();
 	
 		Assert.assertEquals(title, "SEARCHED PRODUCTS");

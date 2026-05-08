@@ -1,8 +1,14 @@
 Feature: Search
 
-Scenario: Search Tshirts
+Scenario Outline: Search article
 
 Given the user is in the Product page
-When the user enters Tshirt in the search bar
+When the user enters '<article>' in the search bar
 And the user clicks the search button
-Then the Tshirt page appears
+Then the product page appears
+
+Examples:
+| article |
+| tshirt |
+| dresses |
+| jeans |
